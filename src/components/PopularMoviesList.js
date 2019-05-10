@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
+import { getPopularMovies } from '../actions/moviesActions';
 
 import MovieCard from './MovieCard';
 import Preloader from './Preloader/Preloader';
@@ -23,14 +25,11 @@ class PopularMoviesList extends React.Component {
   };
 
   componentDidMount() {
-    axios
-      .get(
-        'https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/movie/popular?api_key=e30307c056887eab161000975740e1ce&language=en-US&page=1'
-      )
+    this.props
+      .getPopularMovies()
       .then(res => {
         if (res.status === 200) {
           this.setState({
-            movies: res.data.results,
             loading: false
           });
         } else {
@@ -46,7 +45,8 @@ class PopularMoviesList extends React.Component {
   }
 
   render() {
-    const { movies, error, loading } = this.state;
+    const { error, loading } = this.state;
+    const { movies } = this.props;
     return (
       <Fragment>
         {loading ? (
@@ -83,4 +83,13 @@ PopularMoviesList.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(PopularMoviesList);
+function mapStateToProps(state) {
+  return {
+    movies: state.moviesReducer.movies.results
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { getPopularMovies }
+)(withStyles(styles)(PopularMoviesList));
