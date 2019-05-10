@@ -1,8 +1,9 @@
 import React from 'react';
-import BrowserRouter from "react-router-dom/es/BrowserRouter";
-import Provider from "react-redux/es/components/Provider";
-import GeneralStore from "./GeneralStore";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+
 import './App.css';
+import GeneralStore from "./GeneralStore";
 import MainComponent from './Components/MainComponent';
 
 const store = GeneralStore();
