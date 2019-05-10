@@ -1,7 +1,7 @@
 {
   "name": "test_task",
   "version": "0.1.0",
-  "homepage": "https://rodder1200.github.io/MovieList/",
+  "homepage": "https://rodder1200.github.io/MovieList",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
