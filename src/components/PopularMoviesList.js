@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -17,67 +17,55 @@ const styles = theme => ({
   }
 });
 
-class PopularMoviesList extends React.Component {
-  state = {
-    movies: [],
-    error: false,
-    loading: true
-  };
+const PopularMoviesList = ({ movies, getPopularMovies }) => {
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  componentDidMount() {
-    this.props
-      .getPopularMovies()
+  useEffect(() => {
+    getPopularMovies()
       .then(res => {
         if (res.status === 200) {
-          this.setState({
-            loading: false
-          });
+          setLoading(false);
         } else {
-          this.setState({
-            error: true,
-            loading: false
-          });
+          setLoading(false);
+          setError(true);
         }
       })
       .catch(error => {
         console.error(error);
       });
-  }
+  }, []);
 
-  render() {
-    const { error, loading } = this.state;
-    const { movies } = this.props;
-    return (
-      <Fragment>
-        {loading ? (
-          <Preloader />
-        ) : (
-          <Fragment>
-            {error && <Error />}
-            <Grid container spacing={16}>
-              <Grid item xs={12}>
-                <Grid container justify="center" spacing={16}>
-                  {movies.map(elem => (
-                    <Grid key={`card${elem.id}`} item>
-                      <MovieCard
-                        movie_id={elem.id}
-                        title={elem.title}
-                        img={elem.poster_path}
-                        lang={elem.original_language}
-                        vote={elem.vote_average}
-                        type="popular"
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
+  return (
+    <Fragment>
+      {loading ? (
+        <Preloader />
+      ) : (
+        <Fragment>
+          {error && <Error />}
+          <Grid container spacing={16}>
+            <Grid item xs={12}>
+              <Grid container justify="center" spacing={16}>
+                {movies.map(elem => (
+                  <Grid key={`card${elem.id}`} item>
+                    <MovieCard
+                      movie_id={elem.id}
+                      title={elem.title}
+                      img={elem.poster_path}
+                      lang={elem.original_language}
+                      vote={elem.vote_average}
+                      type="popular"
+                    />
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
-          </Fragment>
-        )}
-      </Fragment>
-    );
-  }
-}
+          </Grid>
+        </Fragment>
+      )}
+    </Fragment>
+  );
+};
 
 PopularMoviesList.propTypes = {
   classes: PropTypes.object.isRequired
