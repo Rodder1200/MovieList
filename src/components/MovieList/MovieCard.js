@@ -14,12 +14,29 @@ const styles = {
     maxWidth: 345,
     height: '100%'
   },
-  navlink: {
-    textDecoration: 'none'
-  },
   media: {
     objectFit: 'cover'
   }
+};
+
+const defaultProps = {
+  classes: {},
+  movie_id: 0,
+  vote: 0,
+  title: '',
+  img: '',
+  lang: '',
+  type: ''
+};
+
+const propTypes = {
+  classes: PropTypes.object.isRequired,
+  movie_id: PropTypes.number.isRequired,
+  vote: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 };
 
 const MovieCard = ({ classes, movie_id, title, img, lang, vote, type }) => {
@@ -27,16 +44,15 @@ const MovieCard = ({ classes, movie_id, title, img, lang, vote, type }) => {
     if (type === 'similar') {
       e.preventDefault();
     }
-  }
+  };
   return (
-    <NavLink to={`/similar/${movie_id}`} className={classes.navlink} onClick={handleClick}>
+    <NavLink to={`/similar/${movie_id}`} onClick={handleClick}>
       <Card className={classes.card}>
         <CardActionArea>
           <CardMedia
             component="img"
             alt={title}
             className={classes.media}
-            // height="140"
             image={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${img}`}
             title={title}
           />
@@ -54,8 +70,7 @@ const MovieCard = ({ classes, movie_id, title, img, lang, vote, type }) => {
   );
 };
 
-MovieCard.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+MovieCard.defaultProps = defaultProps;
+MovieCard.propTypes = propTypes;
 
 export default withStyles(styles)(MovieCard);

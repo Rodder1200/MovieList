@@ -13,7 +13,7 @@ const Error = () => (
     justify="center"
     style={{ minHeight: '100vh' }}
   >
-    <NavLink to="/" style={{textDecoration: 'none'}}>
+    <NavLink to="/">
       <Button variant="contained" color="primary">
         <InfoIcon /> Sorry, the page you are looking for could not be found.
       </Button>

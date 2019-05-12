@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const refreshPage = () => {
   window.location.reload();
-}
+};
 
 const Error = () => (
   <Grid
@@ -16,11 +16,7 @@ const Error = () => (
     justify="center"
     style={{ minHeight: '100vh' }}
   >
-    <Button
-      variant="contained"
-      color="secondary"
-      onClick={refreshPage}
-    >
+    <Button variant="contained" color="secondary" onClick={refreshPage}>
       <ErrorIcon /> Something was wrong. Please refresh the page.
     </Button>
   </Grid>
