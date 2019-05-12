@@ -1,9 +1,13 @@
 import React from 'react';
-import preloader from '../../dist/imgs/preloader.gif';
+import preloader from '../../dist/video/preloader.mp4';
 import './Preloader.css';
 
 const Preloader = () => (
-  <img src={preloader} className="preloader" alt="preloader" />
+  <div className='preloader'>
+    <video autoPlay loop muted playsInline>
+      <source src={preloader} type="video/mp4" />
+    </video>
+  </div>
 );
 
 export default Preloader;

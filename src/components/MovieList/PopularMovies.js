@@ -35,7 +35,7 @@ const PopularMovies = ({ movies, getPopularMovies }) => {
     getPopularMovies()
       .then(res => {
         if (res.status === 200) {
-          setLoading(false);
+          setLoading(true);
         } else {
           setLoading(false);
           setError(true);
