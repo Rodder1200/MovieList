@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 400,
     height: '100%'
   },
   media: {
@@ -53,7 +53,7 @@ const MovieCard = ({ classes, movie_id, title, img, lang, vote, type }) => {
             component="img"
             alt={title}
             className={classes.media}
-            image={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${img}`}
+            image={`https://image.tmdb.org/t/p/w400${img}`}
             title={title}
           />
           <CardContent>
