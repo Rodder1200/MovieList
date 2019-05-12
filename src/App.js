@@ -17,7 +17,7 @@ const store = createStore(
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/MovieList">
         <MainComponent />
       </BrowserRouter>
     </Provider>
