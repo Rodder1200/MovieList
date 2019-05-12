@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MovieList/static/css/main.550de794.chunk.css",
-    "main.js": "/MovieList/static/js/main.2281fdb0.chunk.js",
-    "main.js.map": "/MovieList/static/js/main.2281fdb0.chunk.js.map",
+    "main.js": "/MovieList/static/js/main.adfc9db6.chunk.js",
+    "main.js.map": "/MovieList/static/js/main.adfc9db6.chunk.js.map",
     "runtime~main.js": "/MovieList/static/js/runtime~main.3318021b.js",
     "runtime~main.js.map": "/MovieList/static/js/runtime~main.3318021b.js.map",
     "static/js/2.b09ddcf1.chunk.js": "/MovieList/static/js/2.b09ddcf1.chunk.js",
     "static/js/2.b09ddcf1.chunk.js.map": "/MovieList/static/js/2.b09ddcf1.chunk.js.map",
     "index.html": "/MovieList/index.html",
-    "precache-manifest.df979e8097fc300999330d20acd1d724.js": "/MovieList/precache-manifest.df979e8097fc300999330d20acd1d724.js",
+    "precache-manifest.ef169106b901c5e686a7636515234776.js": "/MovieList/precache-manifest.ef169106b901c5e686a7636515234776.js",
     "service-worker.js": "/MovieList/service-worker.js",
     "static/css/main.550de794.chunk.css.map": "/MovieList/static/css/main.550de794.chunk.css.map",
     "static/media/preloader.mp4": "/MovieList/static/media/preloader.3c97d81a.mp4"
