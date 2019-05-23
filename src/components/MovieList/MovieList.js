@@ -47,9 +47,9 @@ const MovieList = ({ loading, error, classes, goBack, movies, type }) => {
                 Back
               </Button>
             )}
-            <Grid container spacing={16}>
+            <Grid container>
               <Grid item xs={12}>
-                <Grid container justify="center" spacing={16}>
+                <Grid container justify="center">
                   {movies.map(elem => (
                     <Grid key={`card${elem.id}`} item>
                       <MovieCard
